@@ -10,14 +10,8 @@
   - name: COURSE
     prompt: please enter the course name
     private: false
-  - name: TRAINER
-    prompt: please enter the TRAINER name
-  - name: DURATION
-    prompt: please enter the duration
+  
   tasks:
   - name: print the info
-    vars:
-      COURSE: "DEVOPS FROM task"
-      DURATION: "150HRS"
     ansible.builtin.debug:
       msg: "I am learning {{COURSE}} from {{TRAINER}} OF {{DURATION}}"
