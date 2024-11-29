@@ -12,7 +12,7 @@
       msg: "given number {{my_number}} is less than 10"
     when: my_number | int < 10 
 
-  - name: print if gtr than 10
+  - name: print if gtr or eq to  10
     ansible.builtin.debug:
       msg: "given number {{my_number}} is gtr or eq t0 10"
     when: my_number | int >= 10
