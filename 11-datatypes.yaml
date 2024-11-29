@@ -3,7 +3,7 @@
   connection: local
   vars:
     course: "devops with AWS"
-    duration: "120HRS"
+    duration: 120
     topics:
     - linux
     - shell
@@ -17,3 +17,9 @@
      Aws:
      - IAM
      - s3
+
+  tasks:
+  - name: print the course info
+    ansible.builtin.debug:
+      msg: "hi i am learning {{course}} with duration: {{duration}}, topics are {{topics}} and live: {{live}},
+       tools are {{tools}} "
