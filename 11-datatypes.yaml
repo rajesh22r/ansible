@@ -1,0 +1,19 @@
+- name: devops course info
+  hosts: local
+  connection: local
+  vars:
+    course: "devops with AWS"
+    duration: "120HRS"
+    topics:
+    - linux
+    - shell
+    - ansible
+    - k8
+    live: true
+  tools:
+    ci: jenkins
+    cm: ansible
+    cloud: AWS
+    Aws:
+    - IAM
+    - s3
