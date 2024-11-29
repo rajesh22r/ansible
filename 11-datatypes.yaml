@@ -10,10 +10,10 @@
     - ansible
     - k8
     live: true
-  tools:
-    ci: jenkins
-    cm: ansible
-    cloud: AWS
-    Aws:
-    - IAM
-    - s3
+    tools:
+     ci: jenkins
+     cm: ansible
+     cloud: AWS
+     Aws:
+     - IAM
+     - s3
