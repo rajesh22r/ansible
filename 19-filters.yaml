@@ -32,4 +32,4 @@
         duration: 120
         trainer: "siva"
     ansible.builtin.debug:
-      msg: "{{ course| dic2items }}"
+      msg: "{{ course| dict2items }}"
