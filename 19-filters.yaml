@@ -10,3 +10,4 @@
       greeting: "hello ramesh"
     ansible.builtin.debug:
       msg: "{{ greeting | upper }}"
+      msg: "{{ greeting | lower }}"
