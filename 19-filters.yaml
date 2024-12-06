@@ -21,6 +21,6 @@
 
   - name: unique numbers
     vars:
-      numbers: [1,2,3,4,2,6,4,90]
+      numbers: [1,2,3,4,5,2,3,5,6,90]
     ansible.builtin.debug:
-    msg: "{{ numbers| unique }}"
+      msg: {{ numbers | unique }}
