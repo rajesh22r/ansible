@@ -7,7 +7,7 @@
       msg: "{{course| default ('ansible')}}"
   - name: convert to upper case
     vars:
-      greeting: "hello ramesh"
+      greeting: "Hello Ramesh"
     ansible.builtin.debug:
       msg: "{{ greeting | upper }}"
       msg: "{{ greeting | lower }}"
