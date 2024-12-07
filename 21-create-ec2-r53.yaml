@@ -9,6 +9,7 @@
     - mysql
     - backend
     - frontend
+    zone: "hraje.online"
   tasks:
   - name: create ec2 instances
     amazon.aws.ec2_instance:
@@ -24,4 +25,30 @@
     ansible.builtin.debug:
       msg: "{{ ec2 }}"
 
-  
+  #private r53
+  - name: create r53 records
+    amazon.aws.route53:
+      state: present
+      zone: {{ zone }}
+      record: "{{item.item}}.{{zone}}" #name mysql.hraje.online
+      type: A
+      ttl: 1
+      value: "{{ item.instance[0].private_ip_address}}"
+      wait: true
+      overwrite: true
+    loop: "{{ ec2.results }}"
+
+  #public ip for frontend
+  - name: r53 record for frontend
+    amazon.aws.route53:
+      state: present
+      zone: {{ zone }}
+      record: "{{zone}}" #name mysql.hraje.online
+      type: A
+      ttl: 1
+      value: "{{ item.instance[0].public_ip_address}}"
+      wait: true
+      overwrite: true
+    loop: "{{ ec2.results }}"
+    when: item.item == "frontend"
+    
