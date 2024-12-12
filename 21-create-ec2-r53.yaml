@@ -2,7 +2,7 @@
   hosts: local
   connection: local
   vars:
-    subnet_id: subnet-0ad15ce2fca18dbe0
+    subnet_id: subnet-0cb4affd135826d7f
     sg_id: "sg-0266c28d366e9f3a0"
     ami_id: "ami-09c813fb71547fc4f"
     instances:
@@ -51,4 +51,10 @@
       overwrite: true
     loop: "{{ ec2.results }}"
     when: item.item == "frontend"
-    
+
+  - name: ansible to install boto3 and botocore
+    ansible.builtin.pip:
+      name:
+      - boto 3
+      - botocore
+      executable: pip3.9    
