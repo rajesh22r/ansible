@@ -15,7 +15,7 @@
   - name: ansible to install boto3 and botocore
     ansible.builtin.pip:
       name:
-      - boto 3
+      - boto3
       - botocore
       executable: pip3.9    
 
