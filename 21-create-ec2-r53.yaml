@@ -2,8 +2,8 @@
   hosts: local
   connection: local
   vars:
-    subnet_id: subnet-0cb4affd135826d7f
-    sg_id: "sg-0266c28d366e9f3a0"
+    subnet_id: "subnet-0cb4affd135826d7f"
+    sg_id: "sg-0c7d651f5ce478175"
     ami_id: "ami-09c813fb71547fc4f"
     instances:
     - mysql
@@ -46,6 +46,7 @@
       wait: true
       overwrite: true
     loop: "{{ ec2.results }}"
+    register: ouput
 
   #public ip for frontend
   - name: r53 record for frontend
@@ -60,5 +61,5 @@
       overwrite: true
     loop: "{{ ec2.results }}"
     when: item.item == "frontend"
-
+    register: front
   
